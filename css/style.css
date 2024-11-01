@@ -3,7 +3,7 @@ body {
     color: #4e342e;
 }
     
-    header {
+header {
     background-color: #f8e0d8;
     height: 100px;
 }
@@ -18,6 +18,11 @@ section {
     font-size: larger;
 }
 
+article {
+    display: flex;
+    justify-content: center; /* Keskittää horisontaalisesti */
+}
+
 aside {
     background-color: #d1e7dd;
     margin-right: 10px;
@@ -29,6 +34,7 @@ footer {
     text-align: center;
 }
 
+/* Painike, josta siirrytään pelaamaan */
 .play {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: inline-flex;
@@ -50,8 +56,6 @@ footer {
     background-color: #f4a261;
 }
 
-
-
 .icon-container {
     display: flex;
     justify-content: center;
@@ -72,4 +76,9 @@ footer {
 @keyframes moveRight {
     0% { transform: translateX(0); }
     100% { transform: translateX(30px); }
+}
+
+/* Pelisivun muotoilut */
+article {
+    padding-top: 20px;
 }
