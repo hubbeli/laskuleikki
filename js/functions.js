@@ -1,4 +1,5 @@
 const animalContainer = document.getElementById("animal-container");
+const numberContainer = document.getElementById("number-container");
 
 const animals = [
     "img/cow.png",
@@ -10,7 +11,8 @@ const animals = [
 
 // Funktio eläinten näyttämiseen
 function showRandomAnimals() {
-    animalContainer.innerHTML = ""; // Tyhjennetään säiliö
+    animalContainer.innerHTML = "";
+    numberContainer.innerHTML = "";
 
     // Valitaan satunnainen eläinkuva
     const randomAnimal = animals[Math.floor(Math.random() * animals.length)];
@@ -25,6 +27,14 @@ function showRandomAnimals() {
         img.classList.add("animal"); // Luokka tyyliä varten
         animalContainer.appendChild(img); // Lisätään kuva säiliöön
     }
+
+        // Luo numerokuvakkeet
+        for (let i = 1; i <= 10; i++) {
+            const img = document.createElement("img");
+            img.src = `img/number${i}.png`;
+            img.classList.add("number-button");
+            numberContainer.appendChild(img);
+        }
 }
 
 // Kutsutaan funktiota, kun sivu latautuu
