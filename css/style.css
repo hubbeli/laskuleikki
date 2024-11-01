@@ -21,3 +21,22 @@ footer {
     color: #ffffff;
     text-align: center;
 }
+
+/* Liikkuva traktori etusivulle */
+
+.icon-container {
+    align-items: center;
+}
+
+.hover-icon {
+    transition: transform 0.3s ease;
+}
+
+.hover-icon:hover {
+    animation: moveRight 0.5s ease forwards;
+}
+
+@keyframes moveRight {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(30px); }
+}
