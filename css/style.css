@@ -118,3 +118,14 @@ article {
     width: 10%; /* pienentää kuvaa suhteessa ikkunan leveyteen */
     max-width: 100px; /* Maksimikoko kuville */
 }
+
+.feedback {
+    align-items: center; /* Keskittää sisältö pystysuunnassa */
+    text-align: center;
+    font-size: 30px;
+}
+
+.feedback-icon {
+    margin-bottom: 0.5rem; /* Lisää tilaa tekstin yläpuolelle */
+}
+
