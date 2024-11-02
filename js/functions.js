@@ -46,6 +46,15 @@ function checkAnswer(selectedNumber) {
     if (isAnswered) return; // Estää klikkauksen oikean vastauksen jälkeen
     if (selectedNumber === correctAnswer) {
         feedback.innerHTML = `<p><img src="img/smile.png" alt="Oikein" class="feedback-icon"><br>Hyvin pelattu! Oikea vastaus on tosiaan ${correctAnswer}.</p>`; // Oikea vastaus
+
+        // Lisätään traktori, jonka klikkaaminen aloittaa uuden pelin
+        const tractorIcon = document.createElement("img");
+        tractorIcon.src = "img/tractor.png";
+        tractorIcon.alt = "Pelaa uudestaan";
+        tractorIcon.classList.add("tractor-icon");
+        tractorIcon.onclick = showRandomAnimals; // Käynnistää uuden pelin klikkauksella
+        feedback.appendChild(tractorIcon);
+
         isAnswered = true; // Estää lisää klikkauksia oikean vastauksen jälkeen
     } else {
         feedback.innerHTML = `<p><img src="img/sad.png" alt="Väärin" class="feedback-icon"><br>Ei ihan, yritähän uudelleen!</p>`; // Väärä vastaus
