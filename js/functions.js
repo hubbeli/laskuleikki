@@ -11,11 +11,14 @@ const animals = [
 ];
 
 let correctAnswer;
+let isAnswered = false; // Estää klikkaukset oikean vastauksen jälkeen
 
 // Funktio eläinten näyttämiseen
 function showRandomAnimals() {
     animalContainer.innerHTML = "";
     numberContainer.innerHTML = "";
+    feedback.innerHTML = "";
+    isAnswered = false; // Nollataan klikkausesto uuden kysymyksen alussa
 
     const randomAnimal = animals[Math.floor(Math.random() * animals.length)]; // Valitaan satunnainen eläinkuva
     const animalCount = Math.floor(Math.random() * 10) + 1; // Valitaan satunnainen määrä (1–10) eläinkuvia
@@ -40,8 +43,10 @@ function showRandomAnimals() {
 
 // Vastausten tarkistus
 function checkAnswer(selectedNumber) {
+    if (isAnswered) return; // Estää klikkauksen oikean vastauksen jälkeen
     if (selectedNumber === correctAnswer) {
         feedback.innerHTML = `<p><img src="img/smile.png" alt="Oikein" class="feedback-icon"><br>Hyvin pelattu! Oikea vastaus on tosiaan ${correctAnswer}.</p>`; // Oikea vastaus
+        isAnswered = true; // Estää lisää klikkauksia oikean vastauksen jälkeen
     } else {
         feedback.innerHTML = `<p><img src="img/sad.png" alt="Väärin" class="feedback-icon"><br>Ei ihan, yritähän uudelleen!</p>`; // Väärä vastaus
     }

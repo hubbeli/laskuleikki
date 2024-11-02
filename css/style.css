@@ -120,12 +120,12 @@ article {
 }
 
 .feedback {
-    align-items: center; /* Keskittää sisältö pystysuunnassa */
+    align-items: center;
     text-align: center;
     font-size: 30px;
 }
 
 .feedback-icon {
-    margin-bottom: 0.5rem; /* Lisää tilaa tekstin yläpuolelle */
+    margin-bottom: 0.5rem;
 }
 
