@@ -1,5 +1,6 @@
 const animalContainer = document.getElementById("animal-container");
 const numberContainer = document.getElementById("number-container");
+const feedback = document.getElementById("feedback");
 
 const animals = [
     "img/cow.png",
@@ -9,19 +10,18 @@ const animals = [
     "img/sheep.png",
 ];
 
+let correctAnswer;
+
 // Funktio eläinten näyttämiseen
 function showRandomAnimals() {
     animalContainer.innerHTML = "";
     numberContainer.innerHTML = "";
 
-    // Valitaan satunnainen eläinkuva
-    const randomAnimal = animals[Math.floor(Math.random() * animals.length)];
-    
-    // Valitaan satunnainen määrä (1–10) eläinkuvia
-    const animalCount = Math.floor(Math.random() * 10) + 1;
+    const randomAnimal = animals[Math.floor(Math.random() * animals.length)]; // Valitaan satunnainen eläinkuva
+    const animalCount = Math.floor(Math.random() * 10) + 1; // Valitaan satunnainen määrä (1–10) eläinkuvia
+    correctAnswer = Math.floor(Math.random() * 10) + 1; // Asetetaan oikea vastaus
 
-    // Lisätään valittu eläinkuva animalContaineriin oikea määrä kertoja
-    for (let i = 0; i < animalCount; i++) {
+    for (let i = 0; i < correctAnswer; i++) {
         const img = document.createElement("img");
         img.src = randomAnimal; // Määritellään valitun eläimen kuva lähteeksi
         img.classList.add("animal"); // Luokka tyyliä varten
@@ -33,8 +33,18 @@ function showRandomAnimals() {
             const img = document.createElement("img");
             img.src = `img/number${i}.png`;
             img.classList.add("number-button");
+            img.onclick = () => checkAnswer(i); // Tarkistaa vastauksen klikkauksesta
             numberContainer.appendChild(img);
         }
+}
+
+// Vastausten tarkistus
+function checkAnswer(selectedNumber) {
+    if (selectedNumber === correctAnswer) {
+        feedback.innerHTML = "<img src='img/smiley.png' alt='Oikein!' />"; // Oikea vastaus
+    } else {
+        feedback.innerHTML = "<img src='img/sadface.png' alt='Väärin!' />"; // Väärä vastaus
+    }
 }
 
 // Kutsutaan funktiota, kun sivu latautuu
