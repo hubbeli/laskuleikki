@@ -8,6 +8,17 @@ header {
     height: 100px;
 }
 
+header h1 {
+    font-size: 4vw; /* skaalaa fonttikokoa suhteessa näytön leveyteen */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header h1 img {
+    width: 10%; /* pienentää kuvaa suhteessa ikkunan leveyteen */
+}
+
 nav {
     background-color: #f8e0d8;
     font-family:Arial, Helvetica, sans-serif;
@@ -92,6 +103,8 @@ article {
 
 #animal-container img {
     margin: 20px;
+    width: 10%; /* pienentää kuvaa suhteessa ikkunan leveyteen */
+    max-width: 100px; /* Maksimikoko kuville */
 }
 
 #number-container {
@@ -99,4 +112,9 @@ article {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+}
+
+#number-container img {
+    width: 10%; /* pienentää kuvaa suhteessa ikkunan leveyteen */
+    max-width: 100px; /* Maksimikoko kuville */
 }
