@@ -41,9 +41,9 @@ function showRandomAnimals() {
 // Vastausten tarkistus
 function checkAnswer(selectedNumber) {
     if (selectedNumber === correctAnswer) {
-        feedback.innerHTML = "<img src='img/smile.png' alt='Oikein!' />"; // Oikea vastaus
+        feedback.innerHTML = `<p>Hyvin pelattu! Oikea vastaus on tosiaan ${correctAnswer}. <img src="img/smile.png" alt="Oikein" class="feedback-icon"></p>`; // Oikea vastaus
     } else {
-        feedback.innerHTML = "<img src='img/sad.png' alt='Väärin!' />"; // Väärä vastaus
+        feedback.innerHTML = `<p>Ei ihan, yritähän uudelleen! <img src="img/sad.png" alt="Väärin" class="feedback-icon"></p>`; // Väärä vastaus
     }
 }
 
