@@ -47,13 +47,28 @@ function checkAnswer(selectedNumber) {
     if (selectedNumber === correctAnswer) {
         feedback.innerHTML = `<p><img src="img/smile.png" alt="Oikein" class="feedback-icon"><br>Hyvin pelattu! Oikea vastaus on tosiaan ${correctAnswer}.</p>`; // Oikea vastaus
 
+
+        // Luodaan uusi peli -painike, jonka sisällä on teksti ja traktori-kuvake
+        const newGameButton = document.createElement("button");
+        newGameButton.classList.add("new-game-button");
+        newGameButton.onclick = showRandomAnimals; // Käynnistää uuden pelin klikkauksella
+
+        // Lisätään teksti ja kuva painikkeen sisään
+        const newGameText = document.createElement("span");
+        newGameText.textContent = "Pelaa uudelleen"; // Teksti painikkeessa
+        newGameText.classList.add("new-game-text");
+
         // Lisätään traktori, jonka klikkaaminen aloittaa uuden pelin
         const tractorIcon = document.createElement("img");
         tractorIcon.src = "img/tractor.png";
-        tractorIcon.alt = "Pelaa uudestaan";
+        tractorIcon.alt = "Pelaa uudelleen";
         tractorIcon.classList.add("tractor-icon");
-        tractorIcon.onclick = showRandomAnimals; // Käynnistää uuden pelin klikkauksella
-        feedback.appendChild(tractorIcon);
+
+        newGameButton.appendChild(newGameText);
+        newGameButton.appendChild(tractorIcon);
+
+        // Lisätään painike feedback-elementtiin
+        feedback.appendChild(newGameButton);
 
         isAnswered = true; // Estää lisää klikkauksia oikean vastauksen jälkeen
     } else {
