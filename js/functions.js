@@ -10,8 +10,18 @@ const animals = [
     "img/sheep.png",
 ];
 
+let correctCount = 0; // oikein vastatut
+let incorrectCount = 0; // väärin vastatut
 let correctAnswer;
 let isAnswered = false; // Estää klikkaukset oikean vastauksen jälkeen
+
+const updateAnswerCounts = () => {
+    document.querySelector('#correct-count').value = correctCount;
+    document.querySelector('#incorrect-count').value = incorrectCount;
+}
+addEventListener("DOMContentLoaded", () => {
+    updateAnswerCounts(); // päivittää laskurit
+});
 
 // Funktio eläinten näyttämiseen
 function showRandomAnimals() {
@@ -46,7 +56,7 @@ function checkAnswer(selectedNumber) {
     if (isAnswered) return; // Estää klikkauksen oikean vastauksen jälkeen
     if (selectedNumber === correctAnswer) {
         feedback.innerHTML = `<p><img src="img/smile.png" alt="Oikein" class="feedback-icon"><br>Hyvin pelattu! Oikea vastaus on tosiaan ${correctAnswer}.</p>`; // Oikea vastaus
-
+        correctCount++;  // kasvattaa oikein-laskuria
 
         // Luodaan uusi peli -painike, jonka sisällä on teksti ja traktori-kuvake
         const newGameButton = document.createElement("button");
@@ -73,7 +83,9 @@ function checkAnswer(selectedNumber) {
         isAnswered = true; // Estää lisää klikkauksia oikean vastauksen jälkeen
     } else {
         feedback.innerHTML = `<p><img src="img/sad.png" alt="Väärin" class="feedback-icon"><br>Ei ihan, yritähän uudelleen!</p>`; // Väärä vastaus
+        incorrectCount++; // kasvattaa väärin-laskuria
     }
+    updateAnswerCounts();
 }
 
 // Kutsutaan funktiota, kun sivu latautuu
