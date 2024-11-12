@@ -85,6 +85,11 @@ function checkAnswer(selectedNumber) {
         feedback.innerHTML = `<p><img src="img/sad.png" alt="Väärin" class="feedback-icon"><br>Ei ihan, yritähän uudelleen!</p>`; // Väärä vastaus
         incorrectCount++; // kasvattaa väärin-laskuria
     }
+
+    // Tallennetaan pisteet sessionStorageen
+    sessionStorage.setItem("correctCount", correctCount);
+    sessionStorage.setItem("incorrectCount", incorrectCount);
+    
     updateAnswerCounts();
 }
 

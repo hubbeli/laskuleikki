@@ -35,20 +35,32 @@
                 <section>
                     <h3>Tervetuloa laskuleikkiin! <img src=img/horse.png></h3>
                     <p>Opi matikkaa maatilan eläinten avulla.
-                    <br>Aja maatilalle ja lähde mukaan laskuleikkiin!</p>
-                    <p>Laskuleikki on suunniteltu tukemaan oppimista varhaiskasvatuksessa.</p>
+                    <br>Laskuleikki on suunniteltu tukemaan oppimista varhaiskasvatuksessa.</p>
+                    <p>Aja maatilalle ja lähde mukaan laskuleikkiin!</p>
                     <div class="icon-container">
                         <a class="play" href="index2.html">
-                            Aja maatilalle<br><img src="img/tractor.png" alt="Icon" class="hover-icon">
+                            Aja maatilalle 
+                            <img src="img/tractor.png" alt="Icon" class="hover-icon">
                         </a>
                     </div>
                 </section>
             </div>
             <div class="col-md-4 p-3">
-                <aside>SIVUPALKKI TÄHÄN
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                </p>
+                <aside>
+                    <h3>Edellisen pelikertasi tulokset:</h3>
+                    <div id="score">
+                        <p>Oikeat vastaukset: <span id="correct-score">0</span></p>
+                        <p>Väärät vastaukset: <span id="incorrect-score">0</span></p>
+                        <img src="./img/duck.png">
+                    </div>
+                    <script>
+                        // Haetaan pisteet sessionStoragesta
+                        const correctScore = sessionStorage.getItem("correctCount") || 0;
+                        const incorrectScore = sessionStorage.getItem("incorrectCount") || 0;
+                        // Näytetään pisteet HTML-sivuilla
+                        document.getElementById("correct-score").textContent = correctScore;
+                        document.getElementById("incorrect-score").textContent = incorrectScore;
+                    </script>
                 </aside>
             </div>
         </div>
